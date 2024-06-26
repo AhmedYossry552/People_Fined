@@ -11,6 +11,9 @@ app.secret_key = os.urandom(24)
 
 init_app(app)
 init_mail(app)
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    return jsonify({'message': 'Welcome to the Online Shop!'}) 
 app.register_blueprint(report_bp,)
 app.register_blueprint(user_bp,)
 app.register_blueprint(home_bp)
