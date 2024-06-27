@@ -107,7 +107,17 @@ def user_profile():
     except Exception as e:
         return jsonify({'error': str(e)}), 500   
 
-
+@user_bp.route('/getNearUser', methods=['POST'])
+def getNearUsers():
+    lng=request.form['lng'],
+    lat= request.form['lat'],
+    city=request.form['city'],
+    mysql=g.db
+    cursor=mysql.cursor()
+    cursor.callproc('NotifyUser',(lat,lng,5,city,))
+    for result in cursor.stored_results():
+        rows = result.fetchall()
+    return jsonify(rows)
 
 @user_bp.route('/forgot_password', methods=['POST'])
 def forgot_password():
