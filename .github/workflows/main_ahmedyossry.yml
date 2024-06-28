@@ -25,7 +25,13 @@ jobs:
       - name: Install CMake
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake
+          sudo apt-get install -y cmake 
+            - name: Install system dependencies
+        run: |
+          sudo apt-get install -y \
+            build-essential \
+            libboost-all-dev \
+            software-properties-common
       - name: Create and start virtual environment
         run: |
           python -m venv venv
