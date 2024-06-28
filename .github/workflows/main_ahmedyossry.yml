@@ -22,11 +22,19 @@ jobs:
         with:
           python-version: '3.12'
       
+      - name: Update and clean package lists
+        run: |
+          sudo apt-get clean
+          sudo apt-get update
+      - name: Fix broken packages
+        run: 
+          sudo apt-get -f install
+
       - name: Install CMake
         run: |
           sudo apt-get update
-           sudo apt-get install -y cmake libboost-all-dev libjpeg-dev libpng-dev ... > installation.log
-           cat installation.log  # Output the log for troubleshooting
+          sudo apt-get install -y cmake libboost-all-dev libjpeg-dev libpng-dev ... > installation.log
+          cat installation.log  # Output the log for troubleshooting
 
       - name: Install dlib from source
         run: |
