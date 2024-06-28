@@ -25,17 +25,23 @@ jobs:
       - name: Install CMake
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake libboost-all-dev
-          
+          sudo apt-get install -y cmake=3.30.0-rc3
+
+      - name: Install Boost
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libboost-all-de
+
       - name: Install dlib from source
         run: |
           git clone https://github.com/davisking/dlib.git
           cd dlib
           mkdir build
           cd build
-          cmake ..
+          cmake -DUSE_AVX_INSTRUCTIONS=ON ..
           cmake --build .
           sudo cmake --install .    
+          
       - name: Create and start virtual environment
         run: |
           python -m venv venv
