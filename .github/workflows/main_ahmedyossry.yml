@@ -26,7 +26,7 @@ jobs:
         run: |
           sudo apt-get update
            sudo apt-get install -y cmake libboost-all-dev libjpeg-dev libpng-dev ... > installation.log
-    cat installation.log  # Output the log for troubleshooting
+           cat installation.log  # Output the log for troubleshooting
 
       - name: Install dlib from source
         run: |
