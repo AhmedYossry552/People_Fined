@@ -25,12 +25,7 @@ jobs:
       - name: Install CMake
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake
-
-      - name: Install Boost
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libboost-all-dev
+          sudo apt-get install -y cmake libboost-all-dev libjpeg-dev libpng-dev ...
 
       - name: Install dlib from source
         run: |
