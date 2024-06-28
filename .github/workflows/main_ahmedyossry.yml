@@ -25,7 +25,7 @@ jobs:
       - name: Install CMake
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake=3.30.0-rc3
+          sudo apt-get install -y cmake
 
       - name: Install Boost
         run: |
@@ -41,7 +41,7 @@ jobs:
           cmake -DUSE_AVX_INSTRUCTIONS=ON ..
           cmake --build .
           sudo cmake --install .    
-          
+
       - name: Create and start virtual environment
         run: |
           python -m venv venv
